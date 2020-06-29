@@ -1,8 +1,8 @@
 # TP-Link EAP245v3 OpenWrt factory images
 
 ## Signed safeloader format
-The firmware images provided by TP-Link are consist of a safeloader
-image, concatened with an 1024 bit MD5 RSA digest.
+The firmware images provided by TP-Link consist of a safeloader
+image, concatened with a 1024 bit MD5 RSA digest.
 Although the image format is relativeley well understood, it is
 impossible to generate valid firmware files since they cannot be
 provided with a valid signature without the private key.
