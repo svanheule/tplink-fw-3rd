@@ -62,3 +62,47 @@ check3rdFirmwarePTN
 nm_fwup_upgrade3rdFwupFile
 update3rdDataToNvram
 ```
+
+### Firmware structure
+The source code contains the most detailed description of the firmware image layout,
+including the bug in the image parsers that need to be accounted for. Below is an
+overview of what I think the image is supposed to look like.
+
+Image layout:
+
+    0x0000 +------------------------------+
+           | image size                   |
+    0x0004 +------------------------------+
+           | CRC32 checksum               |
+    0x0008 +------------------------------+
+           | magic number (0xdeadbeef)    |
+    0x000c +------------------------------+
+           . device information string    .
+           .                              .
+           .                              .
+    0x004c +------------------------------+
+           . partition descriptor list    .
+           .                              .
+           .                              .
+    0x014c +------------------------------+
+           . partition payloads           .
+           .                              .
+           .                              .
+           .                              .
+           +------------------------------+
+
+
+Partition descriptor:
+
+    0x0000 +------------------------------+
+           | partition name               |
+           |                              |
+    0x0008 +------------------------------+
+           | flash partition base address |
+    0x000c +------------------------------+
+           | flash partition size         |
+    0x0010 +------------------------------+
+           | partition data start offset  |
+    0x0014 +------------------------------+
+           | partition data size          |
+    0x0018 +------------------------------+
