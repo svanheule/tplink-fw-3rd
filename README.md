@@ -15,12 +15,13 @@ sysupgrade file, built for the TP-Link EAP245v3, into a factory image
 that is accepted by the device's web-interface.
 
 Firmware versions that should accept this image type:
-* v2.2 (190530)
-* v2.3 (190731)
-* v2.4 (191029)
+* v2.2.0 (2019-05-30)
+* v2.3.0 (2019-07-31)
+* v2.3.1 (2019-10-29)
+* v2.4.0 (2020-01-17)
 
 The image format was derived from the libnvrammanager.so of the EAP245v3
-firmware v2.4. Image uploads were tested on v2.3. You can check if this
+firmware v2.4.0. Image uploads were tested on v2.3.0. You can check if this
 format might work on your device by extracting the squashfs (`binwalk -e`).
 Check `/lib/libnvrammanager.so` for strings with "3rd" or "openwrt".
 So far, only the EAP245v3 appears to have this libnvrammanager.
